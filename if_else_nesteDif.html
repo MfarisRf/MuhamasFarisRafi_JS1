@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalkulator Sederhana</title>
+</head>
+<body>
+    <h1>Kalkulator Sederhana aja ya puh sepuh</h1>
+    <p>Masukkan dua angka dan operasi matematika:</p>
+
+    <input type="number" id="angka1" placeholder="Angka pertama">
+    <input type="number" id="angka2" placeholder="Angka kedua">
+    <select id="operasi">
+        <option value="tambah">Tambah (+)</option>
+        <option value="kurang">Kurang (-)</option>
+        <option value="kali">Kali (x)</option>
+        <option value="bagi">Bagi (/)</option>
+    </select>
+
+    <button onclick="hitung()">Hitung</button>
+
+    <p>Hasil: <span id="hasil"></span></p>
+
+    <script>
+        function hitung() {
+            var angka1 = parseFloat(document.getElementById('angka1').value);
+            var angka2 = parseFloat(document.getElementById('angka2').value);
+            var operasi = document.getElementById('operasi').value;
+            
+            var hasil;
+            if (operasi === 'tambah') {
+                hasil = angka1 + angka2;
+            } else if (operasi === 'kurang') {
+                hasil = angka1 - angka2;
+            } else if (operasi === 'kali') {
+                hasil = angka1 * angka2;
+            } else if (operasi === 'bagi') {
+                if (angka2 !== 0) {
+                    hasil = angka1 / angka2;
+                } else {
+                    hasil = 'Tidak bisa membagi oleh nol';
+                }
+            } else {
+                hasil = 'Operasi tidak valid';
+            }
+            
+            document.getElementById('hasil').innerText = hasil;
+        }
+    </script>
+</body>
+</html>
